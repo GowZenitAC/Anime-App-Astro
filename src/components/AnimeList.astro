@@ -1,4 +1,28 @@
 ---
-import { animes } from "../data/animes";
+import { data } from "../data/animes";
+import AnimeCard from "./AnimeCard.astro";
+const animes = await data();
+interface Anime {
+    title: string;
+    images: {
+        jpg: {
+            image_url: string;
+        }
+    };
+    year: number;
+}
+console.log(animes);
 ---
+
+<section class= " bg-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-2">
+            {
+                animes.map((anime: Anime) => (
+                    <AnimeCard image={anime.images.jpg.image_url} year = {anime.year} title={anime.title}/>
+                ))
+            }
+        </div>
+    </div>
+</section>
 
