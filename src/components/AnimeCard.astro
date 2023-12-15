@@ -1,14 +1,38 @@
 ---
-const {title, image, year} = Astro.props;
+const { title, image, year, icon, score, type } = Astro.props;
+const typeClass = () => {
+  switch (type) {
+    case "TV":
+      return 'bg-rose-600';
+    case "Movie":
+      return 'bg-sky-600';
+    case "OVA":
+      return 'bg-yellow-600';
+    case "Special":
+      return 'bg-green-600';
+    case "ONA":
+      return 'bg-purple-600';
+    case "Music":
+      return 'bg-pink-600';
+  }
+}
 ---
 
 <div class="flex flex-col justify-center items-center">
-    <div class="rounded w-52 h-72 border-[5px] border-neutral-300 shadow-lg">
-      <figure class="w-full h-full">
-        <img src={image} alt={title} class="object-cover w-full h-full"/>
-      </figure>
+  <div
+    class="relative rounded w-52 h-72 border-[5px] border-neutral-300 shadow-lg"
+  >
+  <a href="#">
+    <div class="absolute inset-0 h-10 bg-gray-900 bg- bg-opacity-[0.64]"></div>
+    <div class=`absolute inset-0 h-10 ${typeClass()} bg-opacity-[0.70] mt-[238px] text-white font-medium text-center text-lg`>
+      {type}
     </div>
-    <h1 class="text-xl font-bold text-center text-black mt-2 mb-2">{title}</h1>
-    <p class="text-black font-bold ">{year}</p>
+    <span class="text-white font-bold absolute mx-8 my-2">{score}</span>
+    <img src={icon} alt="" class="w-5 h-5 absolute mx-2 my-2" />
+    <figure class="w-full h-full">
+      <img src={image} alt={title} class="object-cover w-full h-full" />
+    </figure>
+  </div>
+  <h1 class="text-xl font-bold text-center text-black mt-2 mb-2">{title}</h1>
+  <p class="text-black font-bold">{year}</p>
 </div>
-

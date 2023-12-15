@@ -1,20 +1,29 @@
 ---
 import { data } from "../data/animes";
 import AnimeCard from "./AnimeCard.astro";
+import estrella from "../assets/img/estrella-icon.png";
 const animes = await data();
 
-console.log(animes);
+// console.log(animes);
 ---
 
-<section class= " bg-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-2">
-            {
-                animes.map((anime) => (
-                    <AnimeCard image={anime.images.jpg.image_url} year = {anime.year ? anime.year : 'Desconocido'} title={anime.title_english ? anime.title_english : anime.title}/>
-                ))
-            }
-        </div>
+<section class="bg-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-2"
+    >
+      {
+        animes.map((anime) => (
+          <AnimeCard
+            image={anime.images.jpg.image_url}
+            year={anime.year ? anime.year : "Desconocido"}
+            title={anime.title_english ? anime.title_english : anime.title}
+            icon={estrella}
+            score={anime.score}
+            type={anime.type}
+          />
+        ))
+      }
     </div>
+  </div>
 </section>
-
