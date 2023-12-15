@@ -11,7 +11,7 @@ console.log(animes);
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-2">
             {
                 animes.map((anime) => (
-                    <AnimeCard image={anime.images.jpg.image_url} year = {anime.year ? anime.year : 'Desconocido'} title={anime.title}/>
+                    <AnimeCard image={anime.images.jpg.image_url} year = {anime.year ? anime.year : 'Desconocido'} title={anime.title_english ? anime.title_english : anime.title}/>
                 ))
             }
         </div>
