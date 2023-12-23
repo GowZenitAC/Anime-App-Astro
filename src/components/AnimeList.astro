@@ -1,7 +1,6 @@
 ---
 import { data } from "../data/animes";
 import AnimeCard from "./AnimeCard.astro";
-import estrella from "/assets/img/estrella-icon.png";
 const animes = await data();
 
 // console.log(animes);
@@ -18,7 +17,7 @@ const animes = await data();
             image={anime.images.jpg.image_url}
             year={anime.year ? anime.year : "Desconocido"}
             title={anime.title_english ? anime.title_english : anime.title}
-            icon={estrella}
+            icon={"/assets/img/estrella-icon.png"}
             score={anime.score}
             type={anime.type}
           />
