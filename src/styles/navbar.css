@@ -1,0 +1,23 @@
+
+@media screen and (max-width: 768px) {
+   
+    /* Estilo inicial del contenedor */
+.nav-container {
+    background-color: #8A8888;
+    position: fixed;
+    z-index: 40;
+    height: 100%;
+    width: 100%;
+    
+    transform: translateX(100%); /* Empieza fuera del área visible, desplazado hacia la derecha */
+    transition: transform 0.3s ease-out; /* Agregar una transición para el efecto de deslizamiento */
+}
+
+/* Estilo del contenedor cuando se muestra */
+.nav-container.active {
+  
+    transform: translateX(0); /* Muestra el menú deslizándolo hacia la izquierda */
+}
+
+    
+}
